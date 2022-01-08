@@ -2,22 +2,22 @@
  * Palindrome using stack
  */
 
-var letter = [];
+let letters = [];
 
-var word = "bob";
+let word = "RaceCar";
 
-var rword = "";
+let rWord = "";
 
-for (var i = 0; i < word.length; i++) {
-  letter.push(word[i]);
+for (let i = 0; i < word.length; i++) {
+  letters.push(word[i]);
 }
 
-for (var i = 0; i < word.length; i++) {
-  rword += letter.pop();
+for (let i = 0; i < word.length; i++) {
+  rWord += letters.pop();
 }
 
-if (word === rword) {
-  console.log(`Yaa, ${word} is a palindrome`);
+if (word.toLowerCase() === rWord.toLowerCase()) {
+  console.log(`Yes.. ${word} is a palindrome`);
 } else {
-  console.log(`Noo, ${word} is not a palindrome`);
+  console.log(`Opps.. ${word} is not a palindrome`);
 }
