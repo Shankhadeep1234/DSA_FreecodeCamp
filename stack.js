@@ -1,23 +1,33 @@
-/**
- * Palindrome using stack
- */
+// Creates a stack
 
-let letters = [];
+var Stack = function () {
+  this.count = 0;
+  this.storage = {};
 
-let word = "RaceCar";
+  // Adds a value onto the end of the stack
+  this.push = function (value) {
+    this.storage[this.count] = value;
+    this.count++;
+  };
 
-let rWord = "";
+  // Removes and returns the value at the end of the stack
+  this.pop = function () {
+    if (this.count === 0) {
+      return undefined;
+    }
 
-for (let i = 0; i < word.length; i++) {
-  letters.push(word[i]);
-}
+    this.count--;
+    var result = this.storage[this.count];
+    delete this.storage[this.count];
+    return result;
+  };
 
-for (let i = 0; i < word.length; i++) {
-  rWord += letters.pop();
-}
+  this.size = function () {
+    return this.count;
+  };
 
-if (word.toLowerCase() === rWord.toLowerCase()) {
-  console.log(`Yes.. ${word} is a palindrome`);
-} else {
-  console.log(`Opps.. ${word} is not a palindrome`);
-}
+  // Returns the value at the end of the stack
+  this.peek = function () {
+    return this.storage[this.count - 1];
+  };
+};
